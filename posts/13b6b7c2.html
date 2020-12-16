@@ -1,0 +1,341 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HTML5使用_3 | 0riginDu's Blog</title><meta name="keywords" content="关键词"><meta name="author" content="0riginDu,vicduuuu@Gmail.com"><meta name="copyright" content="0riginDu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="6.HTML表格 &lt;table&gt;标签定义表格；&lt;tr&gt;对应一行；&lt;th&gt;对应一个表头；&lt;td&gt;对应一个单元格–数据容器 默认格式：&lt;th&gt;元素粗体且居中；&lt;td&gt;左对齐 border属性添加边框–&gt;为表格，表头和表格单元格分别定义边框 border-spacing设置表格边框间距 padding指定单元格空间size">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5使用_3">
+<meta property="og:url" content="https://0rigindu.top/posts/13b6b7c2.html">
+<meta property="og:site_name" content="0riginDu&#39;s Blog">
+<meta property="og:description" content="6.HTML表格 &lt;table&gt;标签定义表格；&lt;tr&gt;对应一行；&lt;th&gt;对应一个表头；&lt;td&gt;对应一个单元格–数据容器 默认格式：&lt;th&gt;元素粗体且居中；&lt;td&gt;左对齐 border属性添加边框–&gt;为表格，表头和表格单元格分别定义边框 border-spacing设置表格边框间距 padding指定单元格空间size">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2020-11-14T03:44:14.442Z">
+<meta property="article:modified_time" content="2020-11-14T03:46:08.792Z">
+<meta property="article:author" content="0riginDu">
+<meta property="article:tag" content="关键词">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://0rigindu.top/posts/13b6b7c2"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js" defer></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"7V2SU9XM88","apiKey":"bb416a5b2607973edab33569c45700f2","indexName":"0riginDu","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 0riginDu","link":"链接: ","source":"来源: 0riginDu's Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-11-14 11:46:08'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><link rel="stylesheet" href="/css/gitcalendar.css"/><style type="text/css">#toggle-sidebar {bottom: 80px}</style><style type="text/css">.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body{left:-66px!important}.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover{left:0!important}</style><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="0riginDu's Blog" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友人帐</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/artitalk/"><i class="fa-fw fa fa-comments"></i><span> 说说</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">0riginDu's Blog</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友人帐</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/artitalk/"><i class="fa-fw fa fa-comments"></i><span> 说说</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><h1 class="post-title">HTML5使用_3</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-11-14T03:44:14.442Z" title="发表于 2020-11-14 11:44:14">2020-11-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-11-14T03:46:08.792Z" title="更新于 2020-11-14 11:46:08">2020-11-14</time></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="6html表格"><a class="markdownIt-Anchor" href="#6html表格"></a> 6.HTML表格</h3>
+<p><code>&lt;table&gt;</code>标签定义表格；<code>&lt;tr&gt;</code>对应一行；<code>&lt;th&gt;</code>对应一个表头；<code>&lt;td&gt;</code>对应一个单元格–数据容器</p>
+<p>默认格式：<code>&lt;th&gt;</code>元素粗体且居中；<code>&lt;td&gt;</code>左对齐</p>
+<p><code>border</code>属性添加边框–&gt;为表格，表头和表格单元格分别定义边框</p>
+<p><code>border-spacing</code>设置表格边框间距</p>
+<p><code>padding</code>指定单元格空间size</p>
+<p><code>border-collapse</code>：collapse；属性将边框折叠为一个边框</p>
+<p><code>text-align</code>：left；设置左对齐标题</p>
+<p><code>colspan</code>设置单元格跨越多列</p>
+<p><code>rowspan</code>设置单元格跨行</p>
+<p><code>&lt;caption&gt;</code>标签添加表格标题；其后必须紧跟 <code>&lt;table&gt;</code>标签</p>
+<p><mark>特殊样式</mark>表中添加id属性；其后自定义特殊样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;table id&#x3D;&quot;t01&quot;&gt;</span><br><span class="line">  &lt;caption&gt;Monthly savings&lt;&#x2F;caption&gt;</span><br><span class="line">  &lt;tr&gt;</span><br><span class="line">    &lt;th&gt;Month&lt;&#x2F;th&gt;</span><br><span class="line">    &lt;th&gt;Savings&lt;&#x2F;th&gt;</span><br><span class="line">  &lt;&#x2F;tr&gt;</span><br><span class="line">  &lt;tr&gt;</span><br><span class="line">    &lt;td&gt;January&lt;&#x2F;td&gt;</span><br><span class="line">    &lt;td&gt;$100&lt;&#x2F;td&gt;</span><br><span class="line">  &lt;&#x2F;tr&gt;</span><br><span class="line">  &lt;tr&gt;</span><br><span class="line">    &lt;td&gt;February&lt;&#x2F;td&gt;</span><br><span class="line">    &lt;td&gt;$50&lt;&#x2F;td&gt;</span><br><span class="line">  &lt;&#x2F;tr&gt;</span><br><span class="line">&lt;&#x2F;table&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#t01 tr:nth-child(even) &#123;</span><br><span class="line">  background-color: #eee;</span><br><span class="line">&#125;</span><br><span class="line">#t01 tr:nth-child(odd) &#123;</span><br><span class="line">  background-color: #fff;</span><br><span class="line">&#125;</span><br><span class="line">#t01 th &#123;</span><br><span class="line">  color: white;</span><br><span class="line">  background-color: black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="7html列表"><a class="markdownIt-Anchor" href="#7html列表"></a> 7.HTML列表</h3>
+<p>&lt;1&gt;.无序列表：以<code>&lt;ul&gt;</code>开头，每个列表项以 <code>&lt;li&gt;</code>标签开头</p>
+<p><code>list-style-type</code>定义列表项标记样式：disc；circle；square；none</p>
+<p>tips：<code>float：left</code>水平设置列表样式创建导航菜单</p>
+<p>&lt;2&gt;.有序列表：以<code>&lt;ol&gt;</code>开头</p>
+<p><code>type</code>属性定义列表项标记类型：type=“1”/“A”/“a”/“I”/“i”</p>
+<p><code>start</code>属性控制列表从指定数字开始计数：</p>
+<p>&lt;3&gt;.描述列表：以<code>&lt;dl&gt;</code>定义列表，<code>&lt;dt&gt;</code>定义描述词，<code>&lt;dd&gt;</code>描述术语</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">ul &#123;</span><br><span class="line">  list-style-type: none;</span><br><span class="line">  margin: 0;</span><br><span class="line">  padding: 0;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  background-color: #333333;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">li &#123;</span><br><span class="line">  float: left;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">li a &#123;</span><br><span class="line">  display: block;</span><br><span class="line">  color: white;</span><br><span class="line">  text-align: center;</span><br><span class="line">  padding: 16px;</span><br><span class="line">  text-decoration: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">li a:hover &#123;</span><br><span class="line">  background-color: #111111;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li&gt;&lt;a href&#x3D;&quot;#home&quot;&gt;Home&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;</span><br><span class="line">  &lt;li&gt;&lt;a href&#x3D;&quot;#news&quot;&gt;News&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;</span><br><span class="line">  &lt;li&gt;&lt;a href&#x3D;&quot;#contact&quot;&gt;Contact&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;</span><br><span class="line">  &lt;li&gt;&lt;a href&#x3D;&quot;#about&quot;&gt;About&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;</span><br><span class="line">&lt;&#x2F;ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="8html块和内联元素"><a class="markdownIt-Anchor" href="#8html块和内联元素"></a> 8.HTML块和内联元素</h3>
+<p>HTML元素的显示值：block和inline</p>
+<p>block：块级元素：总是从新行开始： <code>&lt;div&gt;</code>经常用作容器元素</p>
+<p><img src="E:%5CSoftware-data%5CTypora%5CHTML5%5Cimage-20201031211030661.png" alt="image-20201031211030661" /></p>
+<p>inline：内联元素：仅占用必要的宽度：<code>&lt;span&gt;</code>经常用来标记文本</p>
+<p><img src="E:%5CSoftware-data%5CTypora%5CHTML5%5Cimage-20201031211349687.png" alt="image-20201031211349687" /></p>
+<p><mark>内联元素不能包含块级元素</mark></p>
+<h3 id="9html类属性"><a class="markdownIt-Anchor" href="#9html类属性"></a> 9.HTML类属性</h3>
+<p><code>class</code>属性用于指定HTML元素的类</p>
+<p>.类名{ 定义CSS属性 }			ps：类名区分大小写</p>
+<p>多个HTML元素可以共享同一类；一个HTML元素可以属于多个类</p>
+<p>JS中可以使用 <code>getElementsByClassName()</code>方法访问具有特定类名的元素</p>
+<p>eg：单击按钮以隐藏所有具有类名称“ city”的元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;h2&gt;Use of The class Attribute in JavaScript&lt;&#x2F;h2&gt;</span><br><span class="line">&lt;p&gt;Click the button to hide all elements with class name &quot;city&quot;:&lt;&#x2F;p&gt;</span><br><span class="line"></span><br><span class="line">&lt;button onclick&#x3D;&quot;myFunction()&quot;&gt;Hide elements&lt;&#x2F;button&gt;</span><br><span class="line"></span><br><span class="line">&lt;h2 class&#x3D;&quot;city&quot;&gt;London&lt;&#x2F;h2&gt;</span><br><span class="line">&lt;p&gt;London is the capital of England.&lt;&#x2F;p&gt;</span><br><span class="line"></span><br><span class="line">&lt;h2 class&#x3D;&quot;city&quot;&gt;Paris&lt;&#x2F;h2&gt;</span><br><span class="line">&lt;p&gt;Paris is the capital of France.&lt;&#x2F;p&gt;</span><br><span class="line"></span><br><span class="line">&lt;h2 class&#x3D;&quot;city&quot;&gt;Tokyo&lt;&#x2F;h2&gt;</span><br><span class="line">&lt;p&gt;Tokyo is the capital of Japan.&lt;&#x2F;p&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">function myFunction() &#123;</span><br><span class="line">  var x &#x3D; document.getElementsByClassName(&quot;city&quot;);</span><br><span class="line">  for (var i &#x3D; 0; i &lt; x.length; i++) &#123;</span><br><span class="line">    x[i].style.display &#x3D; &quot;none&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="10html-id属性"><a class="markdownIt-Anchor" href="#10html-id属性"></a> 10.HTML id属性</h3>
+<p><code>id</code>属性用于为HTML元素指定唯一的ID；该ID值在HTML文档中必须唯一</p>
+<p><code>#</code>+id名{  定义CSS属性 }		id名区分大小写，至少包含一个字符且不得包含空格</p>
+<p><mark>HTML</mark>书签：允许读者跳转至网页的特定部分</p>
+<pre><code>1. 创建一个含id属性的书签：`&lt;h2 id=&quot;C4&quot;&gt;Chapter 4&lt;/h2&gt;`
+2. 同一页面跳转：`&lt;a href=&quot;#4&quot;&gt;Jump to Chapter 4&lt;/a&gt;`
+3. 不同页面跳转：`&lt;a href=&quot;html_demo.html#C4&quot;&gt;Jump to Chapter 4&lt;/a&gt;`
+</code></pre>
+<p>JS使用 <code>getElementById()</code>方法访问具有特定ID的元素</p>
+<h3 id="11html内联框架"><a class="markdownIt-Anchor" href="#11html内联框架"></a> 11.HTML内联框架</h3>
+<p><code>&lt;iframe&gt;</code>指定一个内联框架，用于将另一个文档嵌入当前HTML文档中</p>
+<p><code>src</code>属性定义要嵌入页面的URL</p>
+<p><code>&lt;iframe src=&quot;url&quot; title=&quot;description&quot;&gt;</code>：屏幕阅读器通过<code>titile</code>属性读取<code>iframe</code>内容</p>
+<p><code>height</code>和 <code>width</code>属性指定 <code>iframe</code>的尺寸：（可用style属性定义尺寸）</p>
+<p><code>&lt;iframe src=&quot;demo_iframe.htm&quot; height=&quot;200&quot; width=&quot;300&quot; title=&quot;Iframe Example&quot;&gt;&lt;/iframe&gt;</code></p>
+<p>移除默认边框：<code>style=&quot;border:none;&quot;</code>	也可以更改边框大小，样式和颜色</p>
+<p><code>iframe</code>可用作链接的目标框架；该<code>target</code>链接的属性必须引用 <code>name</code>iframe的属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src&#x3D;&quot;demo_iframe.htm&quot; name&#x3D;&quot;iframe_a&quot; title&#x3D;&quot;Iframe Example&quot;&gt;&lt;&#x2F;iframe&gt;</span><br><span class="line"></span><br><span class="line">&lt;p&gt;&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.w3schools.com&quot; target&#x3D;&quot;iframe_a&quot;&gt;W3Schools.com&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:vicduuuu@Gmail.com">0riginDu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://0rigindu.top/posts/13b6b7c2.html">https://0rigindu.top/posts/13b6b7c2.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://0riginDu.top" target="_blank">0riginDu's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="twitter,github,qq,zhihu,email,weibo"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.png" target="_blank"><img class="post-qr-code-img" src="/img/wechat.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/d9686c8.html"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">HTML5使用_2</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo"></div></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">0riginDu</div><div class="author-info__description">总有人，山高路远，为你而来。</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/0riginDu/0riginDu.github.io/issues"><i class="fab fa-github"></i><span>Issues</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/0riginDu" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:vicduuuu@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://twitter.com/0riginDu" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a><a class="social-icon" href="https://space.bilibili.com/404327493" target="_blank" title="BiliBili"><i class="fas fa-bold"></i></a><a class="social-icon" href="https://www.zhihu.com/people/0riginDu" target="_blank" title="知乎"><i class="fab fa-zhihu"></i></a></div></div></div><div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-paw fa-spin"></i><span>历史上的今天</span></div><div id="history-news" style="height: 100px;overflow: hidden;"><div id="history-card"></div></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/13b6b7c2.html" title="HTML5使用_3"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HTML5使用_3"/></a><div class="content"><a class="title" href="/posts/13b6b7c2.html" title="HTML5使用_3">HTML5使用_3</a><time datetime="2020-11-14T03:44:14.442Z" title="发表于 2020-11-14 11:44:14">2020-11-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/d9686c8.html" title="HTML5使用_2"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HTML5使用_2"/></a><div class="content"><a class="title" href="/posts/d9686c8.html" title="HTML5使用_2">HTML5使用_2</a><time datetime="2020-11-14T00:24:00.482Z" title="发表于 2020-11-14 08:24:00">2020-11-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/5d59bf6f.html" title="HTML5使用"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HTML5使用"/></a><div class="content"><a class="title" href="/posts/5d59bf6f.html" title="HTML5使用">HTML5使用</a><time datetime="2020-11-14T00:24:00.460Z" title="发表于 2020-11-14 08:24:00">2020-11-14</time></div></div></div></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.1em; color: rgb(93, 147, 73)">笔记</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">十一月 2020</span><span class="card-archive-list-count">3</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">3</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">5k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2020-12-16T00:45:52.784Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020  <i class="fa-fw fas fa-heart card-announcement-animation cc_pointer"></i> 0riginDu</div><div class="footer_custom_text">My Love is like a butterfly！</div></div><head><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></head></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/algolia.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})</script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script>$(function () {
+  $('span.katex-display').wrap('<div class="katex-wrap"></div>')
+})</script><script>function loadTwikoo () {
+  function init () {
+    twikoo.init({ 
+      envId: 'vicdu-0gqi2fqi5d5bfbe9' 
+    })
+  }
+
+  if (typeof twikoo.init === 'function') {
+    init()
+  } else {
+    $.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js', init)
+  }
+}
+
+if ('Twikoo' === 'Twikoo' || !false) {
+  if (false) btf.loadComment(document.getElementById('twikoo'), loadTwikoo)
+  else loadTwikoo()
+} else {
+  function loadOtherComment () {
+    loadTwikoo()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/js/tips.js"></script><div class="aplayer no-destroy" data-id="1999702145" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="true" muted></div><script src="/js/daovoice.js"></script><script> let backimg =["url(/img/banner/0.jpg)","url(/img/banner/1.jpg)","url(/img/banner/2.jpg)","url(/img/banner/3.jpg)","url(/img/banner/4.jpg)","url(/img/banner/5.jpg)","url(/img/banner/6.jpg)"];let index =Math.ceil(Math.random() * (backimg.length-1));document.getElementById("web_bg").style.backgroundImage = backimg[index]</script><script src="/js/history.js"></script><script src="/js/historyroll.js"></script><script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script><script src="js/gitcalendar.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/95aec633.js","daovoice")
+</script><script>var isChatBtn = false
+daovoice('init', {
+  app_id: '95aec633',},{
+  launcher: { 
+     disableLauncherIcon: isChatBtn // 悬浮 ICON 是否显示
+  },
+});
+daovoice('update');
+
+if (isChatBtn) {
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      daovoice('show')
+    });
+  }
+  chatBtnFn()
+} else {
+  if (true) {
+    function chatBtnHide () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: true // 悬浮 ICON 是否显示
+        },
+      });
+    }
+    function chatBtnShow () {
+      daovoice('update', {},{
+        launcher: { 
+        disableLauncherIcon: false // 悬浮 ICON 是否显示
+        },
+      });
+    }
+  }
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/SerokSSR/cdn/meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config_change',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/music/"]):not([href="/no-pjax/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  $('script[data-pjax]').each(function () {
+    $(this).parent().append($(this).remove())
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  if (typeof gtag === 'function') {
+    gtag('config', '', {'page_path': window.location.pathname});
+  }
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  $(window).off('scroll')
+
+  //reset readmode
+  $('body').hasClass('read-mode') && $('body').removeClass('read-mode')
+
+})</script></div></body></html>
