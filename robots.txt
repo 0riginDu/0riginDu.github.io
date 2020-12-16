@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /vendors/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /fancybox/
+Allow: /
+Sitemap: https://geneliunx.com/sitemap.xml,https://geneliunx.com/baidusitemap.xml
